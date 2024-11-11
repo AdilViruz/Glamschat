@@ -1,0 +1,62 @@
+/* General styling */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  margin: 0;
+}
+
+.main_header {
+  text-align: center;
+  font-size: 50px;
+  margin: 0;
+}
+
+.main_title {
+  text-align: center;
+  font-size: 30px;
+  margin: 0;
+}
+
+.nav_buttons {
+  margin-top: 5%;
+  width: 100%;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+a {
+  padding: 20px;
+  background-color: green;
+  border-radius: 25px;
+  color: white;
+  width: 250px;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 5px 5px 5px grey;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border: none;
+  text-decoration: none;
+}
+
+.img {
+  margin-left: 10px;
+  width: 20px;
+}
+
+.img_width {
+  width: 250px;
+}
+
+.img_width2 {
+  margin-top: 30px;
+  width: 300px;
+}
+
+.align_center {
+  text-align: center;
+}
