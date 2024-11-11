@@ -1,6 +1,6 @@
 // script.js
 
-const socket = io("http://localhost:3000");
+const socket = io("https://glamschat.vercel.app");
 
 const messageInput = document.getElementById("messageInput");
 const sendButton = document.getElementById("sendButton");
