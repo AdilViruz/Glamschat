@@ -51,6 +51,9 @@ function displayMessage(message, isSender) {
   messageElement.style.color = "#fff";
   messageElement.style.fontWeight = "bold";
 
+  if (window.matchMedia("(max-width: 600px)").matches) { // If media query matches
+    messageElement.style.marginRight = "15px"}
+
   chatBox.appendChild(messageElement);
   chatBox.scrollTop = chatBox.scrollHeight;
 
@@ -133,10 +136,22 @@ function displayMessage(message, isSender) {
    }
 
   if (gesture != "") {
-    document.getElementById("chatBox").style.backgroundImage =
+
+    if (window.matchMedia("(max-width: 600px)").matches) { // If media query matches
+    document.getElementById("chatBox").style.width = "100%";
+      document.getElementById("chatBox").style.backgroundImage =
+      backgrounds[gesture];
+    document.getElementById("chatBox").style.backgroundRepeat = "no-repeat";
+    document.getElementById("chatBox").style.backgroundSize = "contain";
+    } else {
+      document.getElementById("chatBox").style.backgroundImage =
       backgrounds[gesture];
     document.getElementById("chatBox").style.backgroundRepeat = "no-repeat";
     document.getElementById("chatBox").style.backgroundSize = "cover";
+    }
+
+
+   
   } else {
     document.getElementById("chatBox").style.backgroundImage =
       "url('./Images/default.gif')";
