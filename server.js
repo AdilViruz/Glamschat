@@ -8,7 +8,7 @@ const cors = require("cors");
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
-io.set("origins", "*:*");
+io.set("origins", "https://chatsglam.vercel.app/");
 
 app.use(
   cors({

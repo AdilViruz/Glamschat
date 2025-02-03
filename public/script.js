@@ -1,7 +1,8 @@
 // script.js
 
 const socket = io("https://cdnjs.cloudflare.com", {
-  path: "/ajax/libs//socket.io/",
+  path: "/api/socket",
+  addTrailingSlash: false,
 });
 
 const messageInput = document.getElementById("messageInput");
