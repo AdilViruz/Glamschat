@@ -1,6 +1,8 @@
 // script.js
 
-const socket = io("https://glamschat.vercel.app");
+const socket = io("https://cdnjs.cloudflare.com", {
+  path: "/ajax/libs//socket.io/",
+});
 
 const messageInput = document.getElementById("messageInput");
 const sendButton = document.getElementById("sendButton");
@@ -51,8 +53,10 @@ function displayMessage(message, isSender) {
   messageElement.style.color = "#fff";
   messageElement.style.fontWeight = "bold";
 
-  if (window.matchMedia("(max-width: 600px)").matches) { // If media query matches
-    messageElement.style.marginRight = "15px"}
+  if (window.matchMedia("(max-width: 600px)").matches) {
+    // If media query matches
+    messageElement.style.marginRight = "15px";
+  }
 
   chatBox.appendChild(messageElement);
   chatBox.scrollTop = chatBox.scrollHeight;
@@ -79,79 +83,75 @@ function displayMessage(message, isSender) {
     // Add more options as needed
   };
 
-
-   if (text.includes("happy") ) {
-      if (text.includes("hbd") ||
-       text.includes("birthday") ||
-       text.includes("happybirthday"))
-        {gesture = "hbd"}
-        else if (
-         text.includes("anniversary") || text.includes("aniversary")
-       ) {
-         gesture = "anniversary";
-       } else {
-         gesture = "happy";
-       }
-   }  else if (text.includes("sad")) {
-     gesture = "sad";
-   } else if (text.includes("hello")) {
-     gesture = "hello";
-   } else if (text.includes("angry") || text.includes("anger")) {
-     gesture = "angry";
-   } else if (text.includes("hello")) {
-     gesture = "hello";
-   } else if (text.includes("hi")) {
-     gesture = "hi";
-   } else if (text.includes("holiday")) {
-     gesture = "holiday";
-   } else if (
-     text.includes("hbd") ||
-     text.includes("birthday") ||
-     text.includes("happybirthday") ||
-     text.includes("birthday")
-   ) {
-     gesture = "hbd";
-   } else if (text.includes("play")) {
-     gesture = "play";
-   } else if (text.includes("friend")) {
-     gesture = "friends";
-   } else if (text.includes("sick") || text.includes("ill")) {
-     gesture = "sick";
-   } else if (text.includes("congrat")) {
-     gesture = "congrats";
-   } else if (text.includes("anniversary") || text.includes("aniversary")) {
-     gesture = "anniversary";
-   } else if (text.includes("party")) {
-     gesture = "party";
-   } else if (
-     text.includes("game") ||
-     text.includes("games") ||
-     text.includes("gaming")
-   ) {
-     gesture = "gaming";
-   } else if (text.includes("thanks") || text.includes("thankyou")) {
-     gesture = "thanks";
-   } else {
-     gesture = "";
-   }
+  if (text.includes("happy")) {
+    if (
+      text.includes("hbd") ||
+      text.includes("birthday") ||
+      text.includes("happybirthday")
+    ) {
+      gesture = "hbd";
+    } else if (text.includes("anniversary") || text.includes("aniversary")) {
+      gesture = "anniversary";
+    } else {
+      gesture = "happy";
+    }
+  } else if (text.includes("sad")) {
+    gesture = "sad";
+  } else if (text.includes("hello")) {
+    gesture = "hello";
+  } else if (text.includes("angry") || text.includes("anger")) {
+    gesture = "angry";
+  } else if (text.includes("hello")) {
+    gesture = "hello";
+  } else if (text.includes("hi")) {
+    gesture = "hi";
+  } else if (text.includes("holiday")) {
+    gesture = "holiday";
+  } else if (
+    text.includes("hbd") ||
+    text.includes("birthday") ||
+    text.includes("happybirthday") ||
+    text.includes("birthday")
+  ) {
+    gesture = "hbd";
+  } else if (text.includes("play")) {
+    gesture = "play";
+  } else if (text.includes("friend")) {
+    gesture = "friends";
+  } else if (text.includes("sick") || text.includes("ill")) {
+    gesture = "sick";
+  } else if (text.includes("congrat")) {
+    gesture = "congrats";
+  } else if (text.includes("anniversary") || text.includes("aniversary")) {
+    gesture = "anniversary";
+  } else if (text.includes("party")) {
+    gesture = "party";
+  } else if (
+    text.includes("game") ||
+    text.includes("games") ||
+    text.includes("gaming")
+  ) {
+    gesture = "gaming";
+  } else if (text.includes("thanks") || text.includes("thankyou")) {
+    gesture = "thanks";
+  } else {
+    gesture = "";
+  }
 
   if (gesture != "") {
-
-    if (window.matchMedia("(max-width: 600px)").matches) { // If media query matches
-    document.getElementById("chatBox").style.width = "100%";
+    if (window.matchMedia("(max-width: 600px)").matches) {
+      // If media query matches
+      document.getElementById("chatBox").style.width = "100%";
       document.getElementById("chatBox").style.backgroundImage =
-      backgrounds[gesture];
-    document.getElementById("chatBox").style.backgroundRepeat = "no-repeat";
-    document.getElementById("chatBox").style.backgroundSize = "contain";
+        backgrounds[gesture];
+      document.getElementById("chatBox").style.backgroundRepeat = "no-repeat";
+      document.getElementById("chatBox").style.backgroundSize = "contain";
     } else {
       document.getElementById("chatBox").style.backgroundImage =
-      backgrounds[gesture];
-    document.getElementById("chatBox").style.backgroundRepeat = "no-repeat";
-    document.getElementById("chatBox").style.backgroundSize = "cover";
+        backgrounds[gesture];
+      document.getElementById("chatBox").style.backgroundRepeat = "no-repeat";
+      document.getElementById("chatBox").style.backgroundSize = "cover";
     }
-
-
-   
   } else {
     document.getElementById("chatBox").style.backgroundImage =
       "url('./Images/default.gif')";
