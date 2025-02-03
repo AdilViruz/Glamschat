@@ -3,10 +3,17 @@
 const express = require("express");
 const http = require("http");
 const socketIo = require("socket.io");
+const cors = require("cors");
 
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
+
+app.use(
+  cors({
+    origin: true,
+  })
+);
 
 // Serve static files from the public directory
 app.use(express.static(__dirname + "/public"));
