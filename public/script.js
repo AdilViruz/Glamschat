@@ -1,9 +1,6 @@
 // script.js
 
-const socket = io("https://cdnjs.cloudflare.com", {
-  path: "/api/socket",
-  addTrailingSlash: false,
-});
+const socket = io("https://chatsglam.onrender.com");
 
 const messageInput = document.getElementById("messageInput");
 const sendButton = document.getElementById("sendButton");
